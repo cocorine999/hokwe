@@ -48,3 +48,15 @@ jobs:
           SLACK_TITLE: CI
           SLACK_USERNAME: GitHub
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Slack error notification
+        if: job.status == 'failure'
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_CHANNEL: app
+          SLACK_COLOR: danger
+          SLACK_ICON: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          SLACK_MESSAGE: 'The deployment has failed @channel'
+          SLACK_TITLE: CI
+          SLACK_USERNAME: GitHub
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
