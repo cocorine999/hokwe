@@ -1,5 +1,7 @@
 <template>
-  <Tutorial/>
+  <div>
+  <Tutorial title= "Nuxt Application Support" />
+  </div>
 </template>
 
 <script>
