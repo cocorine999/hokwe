@@ -10,14 +10,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - uses: actions/checkout@v3
+    
+    - name: Configure AWS Credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
+        
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.4.0
+        
     - name: Build static site
       run: yarn install && yarn build
+      
     - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./dist/ s3://arn:aws:s3:::hokwe --delete
+      run: |
+        aws s3 sync ./dist/ s3://arn:aws:s3:::hokwe --delete
+      
+    # Display deprecation warning message
+    - name: Display deprecation warning
+      run: |
+        echo "WARNING: The 'actions/setup-node@v2.1.2' action is using a deprecated Node.js version (12). Please update to Node.js version 20.4.0. For more information, see: https://github.blog/changelog/2023-06-13-github-actions-all-actions-will-run-on-node v20.4.0
+-instead-of-node12-by-default/"
+
