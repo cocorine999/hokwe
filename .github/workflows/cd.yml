@@ -32,4 +32,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
-          repository: cocorine999/hokwe/production
+          repository: cocorine999/hokwe
