@@ -29,5 +29,5 @@ jobs:
       
     - name: Deploy static site to S3 bucket
       run: |
-        aws s3 sync ./dist/ s3://arn:aws:s3:::hokwe --delete
+        aws s3 sync ./dist/ s3://hokwe --delete
 
