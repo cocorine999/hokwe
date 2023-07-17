@@ -11,9 +11,10 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'My amazing site.' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
+    script: [ { innerHTML: 'console.log(\'Hello world\')' } ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
