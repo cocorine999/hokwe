@@ -34,6 +34,5 @@ jobs:
     # Display deprecation warning message
     - name: Display deprecation warning
       run: |
-        echo "WARNING: The 'actions/setup-node@v2.1.2' action is using a deprecated Node.js version (12). Please update to Node.js version 20.4.0. For more information, see: https://github.blog/changelog/2023-06-13-github-actions-all-actions-will-run-on-node v20.4.0
--instead-of-node12-by-default/"
+        echo "WARNING: The 'actions/setup-node@v2.1.2' action is using a deprecated Node.js version (12). Please update to Node.js version 20.4.0. For more information, see: https://github.blog/changelog/2023-06-13-github-actions-all-actions-will-run-on-node v20.4.0-instead-of-node12-by-default/"
 
